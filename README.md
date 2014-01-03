@@ -1,3 +1,9 @@
+# THIS IS A MODIFIED README OF REVEAL.JS
+
+To use this style just clone repo and edit index.html.
+
+----
+
 # reveal.js [![Build Status](https://travis-ci.org/hakimel/reveal.js.png?branch=master)](https://travis-ci.org/hakimel/reveal.js)
 
 A framework for easily creating beautiful presentations using HTML. [Check out the live demo](http://lab.hakim.se/reveal-js/).
