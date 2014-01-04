@@ -1,0 +1,99 @@
+o<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Квадрокоптер</title>
+
+		<link rel="stylesheet" href="../../css/reveal.min.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<h2>Проект TechnoWorks Quadrocopter</h2>
+					<h3>Квадрокоптер&nbsp;&mdash; небольшое летающее устройство с четырьмя винтами, управляемое при помощи микроконтроллера.</h3>
+				</section>
+				<section>
+					<h2>Немного про коптеры</h2>
+					<ul>
+						<li>Стали возможны относительно недавно</li>
+						<li>По конструкции гораздо проще самолета или вертолета</li>
+						<li>Высокая маневренность</li>
+						<li>Сейчас используются для фотосъемки</li>
+						<li>Необходимость автоматической стабилизации из-за малых размеров</li>
+					</ul>
+				
+				</section>
+				<section>
+					<h2>Наша реализация</h2>
+					<ol type="1">
+						<li>Плата управления, собранная из отдельных частей</li>
+						<li>Код на C++</li>
+					</ol>	
+				</section>
+				
+				<section>
+					<h2>Простейший алгоритм стабилизации: ПИД</h2>
+					<ul type="1">
+						<li>Коптеру необходима стабилизация</li>
+						<li>Можно управлять второй производной координат и углов \[ \begin{cases} J\ddot{\alpha}=M(t)\\ m\ddot{x}=F(t) \end{cases} \]</li>
+						<li>Необходимо придумать \( M(t) \) и \( x(t) \) в зависимости от текущего состояния и предыстории</li>
+						<li>Одно из решений (ПИД): \( M(t)\mathrel{:}=K_p\cdot\alpha(t)+K_i\cdot\int\limits_0^\tau\alpha(\tau)d\tau+K_d\cdot\frac{d\alpha}{dt}(t) \)</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Датчики</h2>
+					<p>Чтобы реализовать ПИД, нужно знать \( \alpha(t) \) в последовательные моменты времени</p>
+					<p><table>
+						<tr><th>Датчик</th><th>Измеряет</th></tr>
+						<tr><td>MEMS-гироскоп</td><td>Угловую скорость \( ||\,p(t)\,q(t)\,r(t)\,||^T\)</td></tr>
+						<tr><td>Акселерометр</td><td>Ускорение \(\vec{W}\)</td></tr>
+						<tr><td>Цифровой компас</td><td>Магнитное поле \(\vec{B}\)</td></tr>
+					</table>
+					</p>
+					
+					<p>Из показаний гироскопа и акселерометра можно получить углы \( \Theta \) и \( \Phi \), из показаний компаса&nbsp;&mdash; \( \Psi \)</p>
+					<p>Мы используем датчик InvenSense MPU-6050, который рассчитывает \( \Theta, \Phi \), освобождая ресурсы Arduino Due</p>
+				</section>
+				
+				<section>
+					<h2>Управление</h2>
+					<p></p>
+				</section>
+
+			</div>
+
+		</div>
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.min.js"></script>
+
+
+		<script>
+
+						Reveal.initialize({
+				history: true,
+
+
+				math: {
+					// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					config: 'TeX-AMS_HTML-full'
+				},
+
+				dependencies: [
+					{ src: '../../lib/js/classList.js' },
+					{ src: '../../plugin/math/math.js', async: true }
+				]
+			});
+
+
+		</script>
+
+	</body>
+</html>
