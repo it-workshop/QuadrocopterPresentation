@@ -28,69 +28,73 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h2>Проект TechnoWorks Quadrocopter</h2>
-					<p>Квадрокоптер&nbsp;&mdash; небольшое летающее устройство с четырьмя винтами, управляемое микроконтроллером.</p>
-					<img width="300" src="images/Flying.jpg" />
+					<h2>Проект TechnoWorks &laquo;Quadrocopter&raquo;</h2>
+					<p>Квадрокоптер&nbsp;&mdash; небольшое летающее устройство с четырьмя винтами, управляемое микроконтроллером</p>
+					<!--img width="300" src="images/Flying.jpg" /-->
 				</section>
 				
 				<section>
 					<h2>Немного о коптерах</h2>
 					<ul>
-						<li>Стали возможны относительно недавно</li>
-						<li>По конструкции гораздо проще самолета или вертолета</li>
+						<li>Стали доступны относительно недавно</li>
+						<li>По конструкции &mdash; проще самолета или вертолета</li>
 						<li>Высокая маневренность</li>
-						<li>Используются для фотосъемки</li>
+						<li>Используются в т. ч. для фотосъемки</li>
 						<li>Необходима автоматическая стабилизация из-за малых размеров</li>
 					</ul>
-					<p><img src="images/X600_3.png" /></p>
+					<p><img src="images/X600_3.png" style="height: 320px; width: auto;" /></p>
 				</section>
 				
 				<section>
-					<h2>Наша реализация</h2>
-					<img width="400" align="center" src="images/Uno.jpg" />
-					<img src="images/MPU.jpg" />
-					<img src="images/compass.jpg" />
-					
+					<h2>Наша реализация</h2>	
 					<ol type="1">
-						<li>Плата управления, собранная из отдельных частей<ul>
-							<li>Микроконтроллер Arduino Due (ранее Arduino Uno)</li>
-							<li>Акселерометр и гироскоп InvenSense MPU-6050</li>
-							<li>Компас Honeywell HMC5883L</li>
+						<li>Плата управления<ul>
+							<li>Arduino Due (ранее &mdash; Arduino Uno)</li>
+                            <li>Акселерометр и гироскоп <i>InvenSense MPU-6050</i></li>
+                            <li>Компас <i>Honeywell HMC5883L</i></li>
 						</ul></li>
 						<li>Код на C++</li>
 					</ol>	
-					
+                    <img width="400" align="center" src="images/Uno.jpg" />
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+					<img src="images/MPU.jpg" style="height:340px; width: auto;" />
+					<!--img src="images/compass.jpg" /-->
 				</section>
 				
 				<section>
-					<h2>Простейший алгоритм стабилизации: ПИД</h2>
+					<h2>Алгоритм стабилизации</h2>
 					<ul type="1">
-						<li>Коптеру необходима стабилизация</li>
-						<li>Можно управлять второй производной координат и углов \[ \begin{cases} J\ddot{\alpha}=M(t)\\ m\ddot{x}=F(t) \end{cases} \]</li>
-						<li>Необходимо задать \( M(t) \) и \( F(t) \) в зависимости от текущего состояния и предыстории</li>
-						<li>Одно из решений (ПИД): \( M(t)\mathrel{:}=K_p\cdot\alpha(t)+K_i\cdot\int\limits_0^t\alpha(\tau)d\tau+K_d\cdot\frac{d\alpha}{dt}(t) \)</li>
+						<!--li>Коптеру необходима стабилизация</li-->
+						<li>Управляем второй производной координат и углов \[ \begin{cases} J\ddot{\alpha}=M(t)\\ m\ddot{x}=F(t) \end{cases} \]</li>
+						<li>Задаем \( M(t) \) и \( F(t) \) в зависимости от текущего состояния и предыстории</li>
+						<li>Одно из решений &mdash; ПИД: \( M(t)\mathrel{:}=K_p\cdot\alpha(t)+K_i\cdot\int\limits_0^t\alpha(\tau)d\tau+K_d\cdot\frac{d\alpha}{dt}(t) \)</li>
 					</ul>
 				</section>
 				
 				<section>
-					<h2>Простейший алгоритм стабилизации: ПИД</h2>
+					<h2>ПИД-регулятор</h2>
 					<h3>Типичный переходный процесс	</h3>
-					<p><img src="images/PID_Kd.png" /></p>
+					<p><img src="images/PID_Kd.png" style="height: 530px; width: auto;" /></p>
 				</section>
 				
 				<section>
 					<h2>Датчики</h2>
-					<p>Для реализации ПИД нужно знать углы (\(\Psi,\,\theta,\,\Phi\))</p>
-					
-					<center>
-						<table class="doBorder">
-						<tr><th>Датчик</th><th>Измеряет</th><th>Можно получить</th></tr>
-						<tr><td>MEMS-гироскоп</td><td>\(\vec{\omega}\)</td><td style="vertical-align: middle;" rowspan="2">\( \theta \) и \( \Phi \)</td></tr>
-						<tr><td>Акселерометр</td><td>\(\vec{W}\)</td></tr>
-						<tr><td>Цифровой компас</td><td>\(\vec{B}\)</td><td>\(\Psi\)</td></tr>
-					</table>
-					<center><img width="300" src="images/angles.svg" /></center>
-					</center>
+					<p>ПИД требует углы (\(\Psi,\,\theta,\,\Phi\))</p>
+                    <div>
+                        <div style="display: inline-block; width: 50%;">
+                            <table class="doBorder">
+                                <tr><th>Датчик</th><th>Измеряет</th><th>Можно получить</th></tr>
+                                <tr><td>MEMS-гироскоп</td><td>\(\vec{\omega}\)</td><td style="vertical-align: middle;" rowspan="2">\( \theta \) и \( \Phi \)</td></tr>
+                                <tr><td>Акселерометр</td><td>\(\vec{W}\)</td></tr>
+                                <tr><td>Цифровой компас</td><td>\(\vec{B}\)</td><td>\(\Psi\)</td></tr>
+                            </table>
+                        </div>
+                        <div style="display:inline-block; width: 30%; margin-left: 15%;">
+                            <img style="width: 300px; height: auto;" src="images/angles.svg" />
+                        </div>
+                    </div>	
 					
 				</section>
 				
