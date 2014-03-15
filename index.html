@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Квадрокоптер от TechnoWorks</title>
+		<title>Квадрокоптер</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/technoworks.css" id="theme">
+		<link rel="stylesheet" href="css/theme/mipt.css" id="theme">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -27,23 +27,169 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
-					<h2>Проект TechnoWorks &laquo;Quadrocopter&raquo;</h2>
-					<p>Квадрокоптер&nbsp;&mdash; небольшое летающее устройство с четырьмя винтами, управляемое микроконтроллером</p>
-					<img style="width: auto; height: 400px;" src="images/Flying_cropped.jpg" />
+				<section data-background="images/first_slide_back.png">
+                    <img class="logo" style="width: auto; height: 300px;" src="images/bbcn_logo.png" alt="logo" />
+					<h4 class="main_title">juicy solutions</h4>
+
+                    <p>
+                    Программно-аппаратный комплекс для поиска людей, попавших в лавину.
+                    </p>
+                    <!--<img style="width: auto; height: 400px;" src="images/Flying_cropped.jpg" />-->
 				</section>
+
+                <section>
+                    <h2>Проблема</h2>
+                    <p>
+                        Каждый год в горах в результате схода лавин погибает несколько
+                        десятков человек.
+                    </p>
+
+                    <img
+                        src="/images/mountains/elbrus.jpg"
+                        style="width: auto; height: 330px" 
+                        alt="elbrus"
+                    />
+                    <img
+                        src="/images/mountains/ural.jpg"
+                        style="width: auto; height: 330px" 
+                        alt="ural"
+                    />
+                </section>
 				
+                <section data-transition="none" data-transition-speed="fast">
+                    <h2>Проблема</h2>
+                    <p>
+                        Каждый год в горах в результате схода лавин погибает несколько
+                        десятков человек.
+                    </p>
+
+                    <img
+                        src="/images/mountains/lawina1.jpg"
+                        style="width: auto; height: 220px" 
+                        alt="lawine"
+                    />
+                    <br/>
+                    <img
+                        src="/images/mountains/kamikadze.jpg"
+                        style="width: auto; height: 220px" 
+                        alt="board"
+                    />
+                    <img
+                        src="/images/mountains/deadman.jpg"
+                        style="width: auto; height: 220px" 
+                        alt="deadman"
+                    />
+                </section>
+
+                <section>
+                    <h2>Проблема</h2>
+                    <p>
+                        Чем быстрее будет найден человек, попавший под лавину,
+                        тем больше шансов на его спасение.
+                    </p>
+                    <img
+                        src="/images/mountains/courbe_survie.bmp"
+                        style="width: auto; height: 350px;" 
+                        alt="graph"
+                    />
+                    <br />
+                    <em>
+                        На графике показана вероятность выживания в зависимости
+                        от времени погребения (в минутах)
+                    </em>
+                </section>
+
+                <section>
+                    <h2>Что необходимо?</h2>
+                    <br/>
+                    <br/>
+                    <ul>
+                        <li style="margin-bottom: 1em">
+                            Очевидно, что для повышения шансов на спасение необходимо
+                            минимизировать время, необходимое команде спасателей для
+                            поиска пострадавшего.
+                        </li>
+                        <li>
+                            Также, необходимо обезопасить насколько это
+                            возможно и самих участников спасательной операции.
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 style="margin-bottom: 1em">Формализуем задачу</h2>
+                    <ul>
+                        <li>Обнаружение пострадавшего должно занимать не более 15 минут;</li>
+                        <li>
+                            Реальное положение пострадавшего должно укладываться в круг
+                            радиусом 20 метров;
+                        </li>
+                        <li>
+                            Спасательная команда должна иметь карту с отметкой и наиболее
+                            безопасным в данных условиях маршрутом;
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Предлагаемое решение</h2>
+                    <br/><br/> <!-- Oh, shit... -->
+                    <p>
+                        Для решения этой задачи мы предлагаем использовать
+                        автоматизированный программно-аппаратный комплекс на
+                        основе <strong><u>квадрокоптеров</u></strong>.
+                    </p>
+					<img
+                        src="images/X600_3.png"
+                        style="height: 300px; width: auto;"
+                        alt="copter"
+                    />
+                </section>
+
 				<section>
-					<h2>Немного о коптерах</h2>
+					<h2>Почему квадрокоптеры?</h2>
 					<ul>
-						<li>Используются для фотосъемки (в будущем&nbsp;&mdash; доставки)</li>
-						<li>По конструкции&nbsp;&mdash; проще самолета или вертолета</li>
-						<li>Высокая маневренность</li>
-						<li>Стали доступны относительно недавно</li>
-						<li>Необходима автоматическая стабилизация из-за малых размеров</li>
+						<li>Конструктивно проще самолета или вертолета;</li>
+						<li>Обладают высокой маневренностью;</li>
+                        <li>Дешевы (при серийном производстве ~10 т.р.);</li>
+                        <li>Времени полета достаточно для обнаружения пострадавшего
+                            в радиусе, доступном для спасательной команды</li>
 					</ul>
-					<p><img src="images/X600_3.png" style="height: 320px; width: auto;" /></p>
 				</section>
+
+                <section>
+                    <h2>Как это работает?</h2>
+                    <ul>
+                        <li>
+                            Человек, отправляющийся в зону, где существует опасность
+                            схода лавины, берет с собой специализированный маячок;
+                        </li>
+                        <li>
+                            В момент схода лавины на базе спасателей срабатывает сигнал
+                            опасности, по которому запускаются поисковые квадрокоптеры;
+                        </li>
+                    </ul>
+                    <img src="images/mountains/radar.jpg" alt="" />
+                </section>
+				
+                <section>
+                    <h2>Как это работает?</h2>
+                    <ul>
+                        <li>
+                            В реальном времени на диспетчерском пульте отображаются положения
+                            коптеров и премерное положение маячков, которое уточняется по
+                            мере приближения поисковых машин к нему; <br />
+                        </li>
+                        <li>
+                            На планшете поисковой команды отображаются положение назначенного
+                            им маячка и кратчайший безопасный маршрут до него.
+                        </li>
+                    </ul>
+                    <img
+                        src="images/mountains/path.jpg"
+                        style="width: auto; height: 300px"
+                        alt="" />
+                </section>
 				
 				<section>
 					<h2>Наша реализация</h2>	
@@ -55,17 +201,17 @@
 						</ul></li>
 						<li>Код на C++</li>
 					</ol>	
-                    <img width="400" align="center" src="images/Uno.jpg" />
+                    <img width="400" src="images/Uno.jpg" alt="uno"/>
                     &nbsp;
                     &nbsp;
                     &nbsp;
-					<img src="images/MPU.jpg" style="height:340px; width: auto;" />
+					<img src="images/MPU.jpg" style="height:340px; width: auto;" alt="mpu"/>
 					<!--img src="images/compass.jpg" /-->
 				</section>
 				
 				<section>
 					<h2>Алгоритм стабилизации</h2>
-					<ul type="1">
+					<ul>
 						<!--li>Коптеру необходима стабилизация</li-->
 						<li>Управляем второй производной координат и углов \[ \begin{cases} J\ddot{\alpha}=M(t)\\ m\ddot{x}=F(t) \end{cases} \]</li>
 						<li>Задаем \( M(t) \) и \( F(t) \) в зависимости от текущего состояния и предыстории</li>
@@ -76,7 +222,7 @@
 				<section>
 					<h2>ПИД-регулятор</h2>
 					<h3>Типичный переходный процесс	</h3>
-					<p><img src="images/PID_Kd.png" style="height: 530px; width: auto;" /></p>
+					<p><img src="images/PID_Kd.png" style="height: 530px; width: auto;" alt="pid"/></p>
 				</section>
 				
 				<section>
@@ -92,7 +238,7 @@
                             </table>
                         </div>
                         <div style="display:inline-block; width: 30%; margin-left: 15%;">
-                            <img style="width: 300px; height: auto;" src="images/angles.svg" />
+                            <img style="width: 300px; height: auto;" src="images/angles.svg" alt = ""/>
                         </div>
                     </div>	
 					
@@ -105,13 +251,13 @@
                         <li>ПК связан с коптером по радио (<i>xBee</i>)</li>
 					    <li>Данные с коптера на ПК (real time)</li>
                     </ul>
-					<img src="images/Control.png" style="width: 100%; margin-top: 100px;" />
+					<img src="images/Control.png" style="width: 100%; margin-top: 100px;" alt=""/>
 				</section>
 
 				<section>
 					<!--h2>Управление</h2-->	
                     <center>
-                        <img src="images/Program.png" style="width: 100%;" />
+                        <img src="images/Program.png" style="width: 100%;" alt=""/>
                     </center>
 				</section>
 
@@ -142,10 +288,12 @@
 
 				math: {
 					// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
-					config: 'TeX-AMS_HTML-full'
+					config: 'TeX-AMS_HTML-full',
+                    //mathjax: 'js/MathJax.js', //WTF? It doesn't works.
 				},
 
-				transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+                backgroundTransition: 'slide',
 
 				// Parallax scrolling
 				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
