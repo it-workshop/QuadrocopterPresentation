@@ -40,8 +40,7 @@
                 <section>
                     <h2>Проблема</h2>
                     <p>
-                        Каждый год в горах в результате схода лавин погибает несколько
-                        десятков человек.
+                        Каждый год <b>в горах</b>...
                     </p>
 
                     <img
@@ -59,8 +58,8 @@
                 <section data-transition="none" data-transition-speed="fast">
                     <h2>Проблема</h2>
                     <p>
-                        Каждый год в горах в результате схода лавин погибает несколько
-                        десятков человек.
+                        ...в результате схода лавин погибает <b>несколько
+                        десятков человек</b>.
                     </p>
 
                     <img
@@ -194,8 +193,8 @@
                 <section data-transition="none" data-transition-speed="fast">
 					<h2>Наша реализация</h2>	
 					<ol type="1">
-						<li>Плата управления<ul>
-							<li>Arduino Due (ранее &mdash; Arduino Uno)</li>
+						<li>Нестандартная задача \(\Rightarrow\) своя плата управления<ul>
+							<li>Микроконтроллер <i>Arduino Due (ARM)</i></li>
                             <li>Акселерометр и гироскоп <i>InvenSense MPU-6050</i></li>
                             <li>Компас <i>Honeywell HMC5883L</i></li>
 						</ul></li>
@@ -221,6 +220,23 @@
 				
 				<section>
 					<h2>ПИД-регулятор</h2>
+					<h3>Настройка коэффициентов</h3>
+					<ul>
+					<li>Подбор &laquo;вручную&raquo;</li>
+					<li>
+						Автоматический поиск: градиентный спуск
+					</li>
+					<center>
+					<img
+                        src="./images/mountains/gradient.png"
+                        style="height: 300px; width: auto;"
+                        alt="copter"
+                    />
+                    </center>
+				</section>
+				
+				<section>
+					<h2>ПИД-регулятор</h2>
 					<h3>Типичный переходный процесс	</h3>
 					<p><img src="images/PID_Kd.png" style="height: 530px; width: auto;" alt="pid"/></p>
 				</section>
@@ -242,25 +258,6 @@
                         </div>
                     </div>	
 				</section>
-
-				<section>
-					<h2>Настройка коэффициентов</h2>
-					<p>
-						Для настройки коэффициентов ПИД используется градиентный
-						спуск.
-					</p>
-
-					<img
-                        src="./images/mountains/gradient1.png"
-                        style="height: 300px; width: auto;"
-                        alt="copter"
-                    />
-					<img
-                        src="./images/mountains/gradient.png"
-                        style="height: 300px; width: auto;"
-                        alt="copter"
-                    />
-				</section>
 				
 				<section>
 					<h2>Управление</h2>	
@@ -273,16 +270,39 @@
 				</section>
 
 				<section>
-					<!--h2>Управление</h2-->	
+					<h2>Программа для отладки</h2>
                     <center>
                         <img src="images/Program.png" style="width: 100%;" alt=""/>
                     </center>
 				</section>
-
+				
 				<section>
-					<h2>А теперь всё вместе</h2>
+					<h2>Тестовый полет</h2>
 					<iframe width="853" height="480" src="http://www.youtube.com/embed/AxDoO-gNRtc" frameborder="0" allowfullscreen autoplay></iframe>
 				</section>
+				
+				<section>
+					<h2>Поиск маячков</h2>
+                    <ul>
+                    <li>У каждого пострадавшего есть маячок</li>
+                    <li>Квадрокоптеры измеряют мощности сигналов с маячков</li>
+                    <li>Для поиска также используется градиентный спуск</li>
+                    </ul>
+                    <center>
+                    <img
+                        src="./images/mountains/gradient1.png"
+                        style="height: 300px; width: auto;"
+                        alt="copter"
+                    />
+                    </center>
+				</section>
+				
+				<section>
+					<h2>Пункт управления</h2>
+                    <img src="images/screenshot.png" />
+				</section>
+
+				
 <!--
 				<section>
                     <h2>Наши контакты</h2>	
